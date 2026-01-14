@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='i83bweo!_8d1&rq#nfwd*0#8c5vq0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sebastian-django-crud.onrender.com', 'localhost', '127.0.0.1']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
