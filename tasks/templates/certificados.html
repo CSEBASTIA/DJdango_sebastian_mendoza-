@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados - Carlos Sebastian Mendoza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="antialiased bg-[#fafafa] text-slate-900">
+
+    <!-- NAVEGACIÓN -->
+    <header class="border-b border-slate-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
+        <nav class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="{% url 'home' %}" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white text-xs font-bold transition-transform group-hover:rotate-12">SM</div>
+                    <span class="font-black tracking-tighter text-xl uppercase italic">Portfolio</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a href="{% url 'home' %}" class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-black transition-colors">Inicio</a>
+                <a href="{% url 'portafolio' %}" class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-black transition-colors">Portafolio</a>
+                <a href="{% url 'certificados' %}" class="text-[10px] font-black uppercase tracking-[0.2em] text-black border-b-2 border-black pb-1">Certificados</a>
+            </div>
+            <!-- Mobile Menu Icon (Visual only) -->
+            <div class="md:hidden w-6 h-6 flex flex-col justify-between items-end">
+                <span class="w-full h-0.5 bg-black"></span>
+                <span class="w-2/3 h-0.5 bg-black"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <!-- HEADER SECCIÓN -->
+        <div class="max-w-2xl mb-20">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 mb-6 italic leading-none">
+                MIS <br>CERTIFICACIONES
+            </h1>
+            <p class="text-lg text-slate-500 font-light leading-relaxed">
+                Un registro detallado de mi formación técnica y académica. <br class="hidden md:block">
+                Especializándome en desarrollo de software y diseño de experiencias.
+            </p>
+        </div>
+
+        <!-- GRID DE CERTIFICADOS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- CERTIFICADO 1: ANDROID STUDIO -->
+            <div class="group bg-white rounded-[2.5rem] border border-slate-100 p-8 hover:border-slate-300 hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414L18.8351 17.6141C19.0699 18.0203 18.9304 18.5398 18.5233 18.7741C18.1162 19.0084 17.5976 18.8689 17.3633 18.4618L16.0344 16.1601C14.7214 16.7118 13.3105 17.0211 11.9991 17.0211C10.6877 17.0211 9.27685 16.7118 7.96386 16.1601L6.63489 18.4618C6.40058 18.8689 5.88203 19.0084 5.47491 18.7741C5.0678 18.5398 4.92829 18.0203 5.1631 17.6141L6.47522 15.3414C4.19125 13.916 2.66113 11.5165 2.66113 8.71881H21.3371C21.3371 11.5165 19.807 13.916 17.523 15.3414ZM8.11475 11.6961C8.59926 11.6961 8.99203 11.3033 8.99203 10.8188C8.99203 10.3343 8.59926 9.94154 8.11475 9.94154C7.63023 9.94154 7.23746 10.3343 7.23746 10.8188C7.23746 11.3033 7.63023 11.6961 8.11475 11.6961ZM15.8835 11.6961C16.368 11.6961 16.7608 11.3033 16.7608 10.8188C16.7608 10.3343 16.368 9.94154 15.8835 9.94154C15.399 9.94154 15.0062 10.3343 15.0062 10.8188C15.0062 11.3033 15.399 11.6961 15.8835 11.6961Z"/></svg>
+                </div>
+
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="px-3 py-1 bg-slate-100 text-[9px] font-black uppercase tracking-widest text-slate-500 rounded-full border border-slate-200">
+                        Udemy
+                    </span>
+                    <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+                </div>
+
+                <h3 class="font-black text-2xl mb-2 text-slate-900 tracking-tighter leading-tight group-hover:text-indigo-600 transition-colors">
+                    Curso de Android Studio: <br>Desarrollo de Apps
+                </h3>
+                
+                <p class="text-slate-500 text-sm mb-10 font-medium">Formación avanzada en el entorno de Google para la creación de aplicaciones nativas.</p>
+                
+                <div class="flex items-end justify-between border-t border-slate-50 pt-6">
+                    <div>
+                        <p class="text-[9px] text-slate-400 uppercase font-black tracking-widest mb-1">Fecha de expedición</p>
+                        <p class="text-xs font-bold text-slate-700 uppercase">Junio 2024</p>
+                    </div>
+                    <a href="{% static 'certificados/Android Studio.pdf' %}" target="_blank" class="flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-2xl text-xs font-bold hover:bg-indigo-600 transition-all transform group-hover:translate-x-1">
+                        VER PDF
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PLACEHOLDER PARA OTRO CERTIFICADO (PARA QUE COPIES LA ESTRUCTURA) -->
+            <div class="group bg-white rounded-[2.5rem] border border-dashed border-slate-200 p-8 flex flex-col items-center justify-center text-center opacity-60 hover:opacity-100 transition-opacity">
+                <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-slate-300 mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </div>
+                <p class="text-xs font-black uppercase tracking-widest text-slate-400">Próxima Certificación</p>
+                <p class="text-[10px] text-slate-300 mt-1 italic">Constantemente aprendiendo...</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-20 border-t border-slate-100 bg-white">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col items-center gap-8">
+            <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-slate-200 font-bold text-xs uppercase italic">SM</div>
+            <p class="text-[9px] font-black uppercase tracking-[0.5em] text-slate-400 italic">
+                Mendoza Avellan Carlos Sebastian &copy; 2026
+            </p>
+            <div class="flex gap-6">
+                <a href="#" class="text-[10px] font-black uppercase tracking-widest text-slate-300 hover:text-black transition-colors">LinkedIn</a>
+                <a href="#" class="text-[10px] font-black uppercase tracking-widest text-slate-300 hover:text-black transition-colors">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

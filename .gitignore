@@ -6,3 +6,32 @@ env/
 .env
 staticfiles/
 *.log
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencias
+node_modules/
+venv/
+env/
+__pycache__/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build
+dist/
+build/

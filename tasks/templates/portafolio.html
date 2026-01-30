@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Carlos Sebastian Mendoza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-[#fcfcfc] text-slate-900">
+
+    <!-- NAVEGACIÓN -->
+    <header class="border-b border-slate-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
+        <nav class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <a href="{% url 'home' %}" class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white text-sm font-bold group-hover:bg-blue-600 transition-colors duration-300">
+                        SM
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold tracking-tighter text-lg leading-none">PORTFOLIO</span>
+                        <span class="text-[10px] text-slate-400 font-medium tracking-[0.1em]">EDICIÓN 2026</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="{% url 'home' %}"
+                    class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-all">Inicio</a>
+                <a href="{% url 'portafolio' %}"
+                    class="text-[11px] font-bold uppercase tracking-widest text-black border-b-2 border-slate-900 pb-1">Proyectos</a>
+                <a href="{% url 'certificados' %}"
+                    class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-all">Certificados</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <!-- HEADER SECCIÓN -->
+        <div class="max-w-2xl mb-20">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 mb-6 leading-none">
+                PROYECTOS <span class="text-slate-300">SELECCIONADOS</span>
+            </h1>
+            <p class="text-xl text-slate-500 leading-relaxed">
+                Una muestra de mi capacidad técnica integrando soluciones <span
+                    class="text-slate-900 font-semibold underline decoration-blue-500/30">Full Stack</span>, desde el
+                diseño de interfaz hasta la arquitectura de datos.
+            </p>
+        </div>
+
+        <!-- GRID DE PROYECTOS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <!-- PROYECTO 1 -->
+            <div
+                class="group relative bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Web
+                            App</span>
+                        <span
+                            class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-full">2025</span>
+                    </div>
+
+                    <h3 class="text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                        Islas Galápagos Travel</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Plataforma de e-commerce turístico especializada en la región insular. Implementa un sistema
+                        dinámico de reservas, catálogo de tours y optimización de carga de imágenes para alta
+                        resolución.
+                    </p>
+
+                    <!-- Stack Tecnológico -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#HTML5</span>
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#TailwindCSS</span>
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#JavaScript</span>
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#Vercel</span>
+                    </div>
+                </div>
+
+                <div class="px-8 pb-8">
+                    <a href="https://pagina-wed-islas-galapagos.vercel.app" target="_blank"
+                        class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white rounded-2xl text-sm font-bold hover:bg-blue-600 transition-all active:scale-95">
+                        Explorar Proyecto
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2 -->
+            <div
+                class="group relative bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Backend</span>
+                        <span
+                            class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-full">2026</span>
+                    </div>
+
+                    <h3
+                        class="text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                        CV Auto-Generator</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Herramienta de automatización de documentos profesionales. Desarrollada con arquitectura MVC
+                        para generar perfiles PDF dinámicos basados en entradas de usuario en tiempo real.
+                    </p>
+
+                    <!-- Stack Tecnológico -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#Python</span>
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#Django</span>
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#PostgreSQL</span>
+                        <span class="text-[11px] font-semibold text-slate-400 italic">#Git</span>
+                    </div>
+                </div>
+
+                <div class="px-8 pb-8">
+                    <a href="https://github.com/CSEBASTIA/HOJA-DE-VIDA-AUTOMATIZADO-BOOTCAMP" target="_blank"
+                        class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 border-2 border-slate-900 text-slate-900 rounded-2xl text-sm font-bold hover:bg-slate-900 hover:text-white transition-all active:scale-95">
+                        Repositorio GitHub
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-20 py-20 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start">
+                <p class="text-[12px] font-black uppercase tracking-[0.3em] text-slate-900 mb-2">Mendoza Avellan Carlos
+                    Sebastian</p>
+                <p class="text-xs text-slate-400 font-medium italic">Full Stack Developer &copy; 2026</p>
+            </div>
+
+            <div class="flex gap-6">
+                <a href="https://linkedin.com/in/tuusuario"
+                    class="text-xs font-bold text-slate-400 hover:text-slate-900 transition-colors">LinkedIn</a>
+                <a href="https://github.com/CSEBASTIA"
+                    class="text-xs font-bold text-slate-400 hover:text-slate-900 transition-colors">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV - Carlos Sebastian Mendoza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            border-bottom: 2px solid #000;
+            margin-top: 20px;
+        }
+
+        .item {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        .resumen {
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CARLOS SEBASTIAN MENDOZA AVELLAN</h1>
+    <p style="text-align: center;">Desarrollador Full Stack</p>
+
+    {% if incluir_general %}
+    <div class="resumen">
+        <strong>Perfil Profesional</strong>
+        <p>Desarrollador apasionado por crear soluciones web innovadoras. Experto en el ecosistema <strong>Full
+                Stack</strong> con Django y Python. Comprometido con el código limpio y el aprendizaje constante.</p>
+    </div>
+
+    <h2>EXPERIENCIA</h2>
+    <div class="item">
+        <strong>Desarrollador Web Jr.</strong> <em>EMPRESA DE ALIMENTOS • 2023 - PRESENTE</em>
+        <p>Desarrollo de aplicaciones web con Django y Python. Diseño de bases de datos PostgreSQL. Integración de APIs
+            REST y colaboración con Git.</p>
+    </div>
+    <div class="item">
+        <strong>Freelancer</strong> <em>INDEPENDIENTE • 2024 - 2026</em>
+        <p>Desarrollo de sitios web personalizados. Mantenimiento, soporte técnico y asesoría tecnológica a pequeños
+            negocios locales.</p>
+    </div>
+
+    <h2>HABILIDADES DE PROGRAMACIÓN</h2>
+    <strong>BACKEND</strong>
+    <ul>
+        <li>Python</li>
+        <li>Django</li>
+        <li>PostgreSQL</li>
+        <li>REST API</li>
+        <li>TypeScript</li>
+    </ul>
+
+    <strong>FRONTEND</strong>
+    <ul>
+        <li>HTML5 / CSS3</li>
+        <li>JavaScript</li>
+        <li>Tailwind</li>
+        <li>React</li>
+    </ul>
+
+    <strong>HERRAMIENTAS</strong>
+    <ul>
+        <li>Git / GitHub</li>
+        <li>Docker</li>
+        <li>VS Code</li>
+    </ul>
+    {% endif %}
+
+    {% if incluir_formacion %}
+
+    <h2>EDUCACIÓN</h2>
+    <div class="item">
+        <strong>Ingeniería en Sistemas</strong>
+        <p>Universidad Laica Eloy Alfaro De Manabi, Manta, av circunbalacion • Marzo 2023 - En curso</p>
+    </div>
+    <div class="item">
+        <strong>Título Bachiller - Ciencias</strong>
+        <p>Unidad Educativa Pablo VI, Calceta, juan montalvo • Marzo 2022</p>
+    </div>
+    <div class="item">
+        <strong>Curso de Inglés</strong>
+        <p>Instituto de Idiomas • B1 Intermedio</p>
+    </div>
+    {% endif %}
+
+    {% if incluir_certificados %}
+    <h2>CERTIFICADOS</h2>
+    <div class="item">
+        <strong>Curso de Android Studio</strong>
+        <p>Udemy • Junio 2024</p>
+        <p><a href="http://127.0.0.1:8000/static/certificados/Android%20Studio.pdf" target="_blank">Ver certificado PDF
+                →</a></p>
+    </div>
+    {% endif %}
+
+    {% if incluir_portafolio %}
+    <h2>PROYECTOS</h2>
+    {% for proyecto in proyectos %}
+    <div class="item">
+        <strong>{{ proyecto.title }}</strong>
+        <p>{{ proyecto.company }} • {{ proyecto.date }}</p>
+        <p>{{ proyecto.description }}</p>
+    </div>
+    {% empty %}
+    <p>No hay proyectos</p>
+    {% endfor %}
+    {% endif %}
+
+    <script>
+        window.print();
+    </script>
+</body>
+
+</html>

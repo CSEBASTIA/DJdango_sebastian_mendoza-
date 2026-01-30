@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Skill, Project, Education
+from .models import Skill, Project, Education, Certificado
+# Desregistrar Group para que no aparezca
+@admin.register(Certificado)
+class CertificadoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'plataforma', 'fecha_obtencion')
+    search_fields = ('nombre', 'plataforma')
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
