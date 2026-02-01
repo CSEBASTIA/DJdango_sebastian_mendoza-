@@ -47,43 +47,45 @@
 <body class="antialiased selection:bg-slate-900 selection:text-white">
 
 
-  <!-- NAVEGACIÓN -->
-<header class="border-b border-slate-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
-    <nav class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- NAVEGACIÓN -->
+    <header class="border-b border-slate-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+        <nav class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
 
-        <!-- Logo -->
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center text-white text-xs font-bold">
-                SM
-            </div>
-            <span class="font-bold tracking-tighter text-lg">PORTFOLIO</span>
-        </div>
-
-        <!-- Menú + botones -->
-        <div class="flex items-center gap-8">
-            <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                <a href="{% url 'home' %}" class="nav-link text-slate-900 hover:text-black transition-colors">Inicio</a>
-                <a href="{% url 'portafolio' %}" class="nav-link hover:text-black transition-colors">Portafolio</a>
-                <a href="{% url 'certificados' %}" class="nav-link hover:text-black transition-colors">Certificados</a>
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center text-white text-xs font-bold">
+                    SM
+                </div>
+                <span class="font-bold tracking-tighter text-lg">PORTFOLIO</span>
             </div>
 
-            <a href="{% url 'productos' %}"
-               class="px-4 py-2 border border-slate-200 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors">
-                Productos
-            </a>
+            <!-- Menú + botones -->
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                    <a href="{% url 'home' %}"
+                        class="nav-link text-slate-900 hover:text-black transition-colors">Inicio</a>
+                    <a href="{% url 'portafolio' %}" class="nav-link hover:text-black transition-colors">Portafolio</a>
+                    <a href="{% url 'certificados' %}"
+                        class="nav-link hover:text-black transition-colors">Certificados</a>
+                </div>
 
-            {% if user.is_staff %}
-            <a href="{% url 'admin:index' %}"
-               class="px-4 py-2 border border-slate-900 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-colors">
-                Panel
-            </a>
-            {% endif %}
-        </div>
+                <a href="{% url 'productos' %}"
+                    class="px-4 py-2 border border-slate-200 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors">
+                    Productos
+                </a>
 
-    </nav>
-</header>
+                {% if user.is_staff %}
+                <a href="{% url 'admin:index' %}"
+                    class="px-4 py-2 border border-slate-900 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-colors">
+                    Panel
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
 
     <main class="max-w-5xl mx-auto px-6 py-16">
+
 
         <!-- HEADER / PORTADA -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
@@ -100,7 +102,8 @@
 
                 <!-- Nombre y Rol -->
                 <div class="text-center md:text-left">
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-4">Desarrollador Full Stack
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-4">
+                        Desarrollador Full Stack
                     </p>
                     <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 leading-[1.1]">
                         MENDOZA AVELLAN <br> CARLOS SEBASTIAN
@@ -143,12 +146,15 @@
                 <!-- RESUMEN -->
                 <div class="lg:col-span-12">
                     <div class="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100">
-                        <h2 class="text-xs font-black uppercase tracking-[0.4em] text-slate-400 mb-6">Resumen
+                        <h2 class="text-xs font-black uppercase tracking-[0.4em] text-slate-400 mb-6">
+                            Resumen
                             Profesional
                         </h2>
                         <p class="text-xl md:text-2xl font-medium tracking-tight text-slate-800 leading-tight">
-                            Desarrollador apasionado por crear soluciones web innovadoras. Experto en el ecosistema
-                            <span class="text-black font-bold">Full Stack</span> con Django y Python. Comprometido con
+                            Desarrollador apasionado por crear soluciones web innovadoras. Experto en el
+                            ecosistema
+                            <span class="text-black font-bold">Full Stack</span> con Django y Python.
+                            Comprometido con
                             el
                             código limpio y el aprendizaje constante.
                         </p>
@@ -160,30 +166,36 @@
                     <!-- EXPERIENCIA -->
                     <section id="experiencia">
                         <div class="flex items-center gap-4 mb-10">
-                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Experiencia</h2>
+                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Experiencia
+                            </h2>
                             <div class="h-px flex-grow bg-slate-100"></div>
                         </div>
 
                         <div class="space-y-12">
                             <div class="relative pl-8 border-l-2 border-slate-100">
-                                <div class="absolute w-3 h-3 bg-black rounded-full -left-[7px] top-1.5"></div>
+                                <div class="absolute w-3 h-3 bg-black rounded-full -left-[7px] top-1.5">
+                                </div>
                                 <h3 class="text-xl font-bold tracking-tight">Desarrollador Web Jr.</h3>
-                                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1 mb-4">Empresa
+                                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1 mb-4">
+                                    Empresa
                                     de alimentos
                                     • 2023 - Presente</p>
                                 <p class="text-slate-600 leading-relaxed text-sm">
-                                    Desarrollo de aplicaciones web con Django y Python. Diseño de bases de datos
+                                    Desarrollo de aplicaciones web con Django y Python. Diseño de bases de
+                                    datos
                                     PostgreSQL.
                                 </p>
                             </div>
 
                             <div class="relative pl-8 border-l-2 border-slate-100">
-                                <div class="absolute w-3 h-3 bg-slate-200 rounded-full -left-[7px] top-1.5"></div>
+                                <div class="absolute w-3 h-3 bg-slate-200 rounded-full -left-[7px] top-1.5">
+                                </div>
                                 <h3 class="text-xl font-bold tracking-tight">Freelancer</h3>
                                 <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1 mb-4">
                                     Independiente • 2024 - 2026</p>
                                 <p class="text-slate-600 leading-relaxed text-sm">
-                                    Desarrollo de sitios web personalizados. Mantenimiento, soporte técnico y asesoría
+                                    Desarrollo de sitios web personalizados. Mantenimiento, soporte técnico
+                                    y asesoría
                                     tecnológica a pequeños negocios locales.
                                 </p>
                             </div>
@@ -193,14 +205,16 @@
                     <!-- EDUCACIÓN -->
                     <section id="educacion">
                         <div class="flex items-center gap-4 mb-10">
-                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Educación</h2>
+                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Educación
+                            </h2>
                             <div class="h-px flex-grow bg-slate-100"></div>
                         </div>
 
                         <div class="space-y-8 text-sm">
                             <div>
                                 <h3 class="font-bold text-lg tracking-tight">Ingeniería en Sistemas</h3>
-                                <p class="text-slate-500">Universidad laica de eloy alfaro de manabi • 2023 - 20xx</p>
+                                <p class="text-slate-500">Universidad laica de eloy alfaro de manabi • 2023
+                                    - 20xx</p>
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg tracking-tight">Bootcamp Full Stack</h3>
@@ -215,13 +229,15 @@
                     <!-- HABILIDADES -->
                     <section id="habilidades">
                         <div class="flex items-center gap-4 mb-10">
-                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Habilidades</h2>
+                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Habilidades
+                            </h2>
                             <div class="h-px flex-grow bg-slate-100"></div>
                         </div>
 
                         <div class="space-y-8">
                             <div>
-                                <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Backend
+                                <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">
+                                    Backend
                                 </h4>
                                 <div class="flex flex-wrap gap-2">
                                     <span
@@ -276,7 +292,8 @@
                     <!-- IDIOMAS -->
                     <section>
                         <div class="flex items-center gap-4 mb-10">
-                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Idiomas</h2>
+                            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Idiomas
+                            </h2>
                             <div class="h-px flex-grow bg-slate-100"></div>
                         </div>
 
@@ -287,7 +304,8 @@
                             </div>
                             <div class="p-4 border border-slate-100 rounded-2xl">
                                 <p class="font-bold">Inglés</p>
-                                <p class="text-[10px] text-slate-400 uppercase tracking-widest">B1 Intermedio</p>
+                                <p class="text-[10px] text-slate-400 uppercase tracking-widest">B1
+                                    Intermedio</p>
                             </div>
                         </div>
                     </section>
@@ -296,44 +314,45 @@
     </main>
 
     <footer class="py-20 border-t border-slate-50 text-center">
-        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300 italic">Mendoza Avellan Carlos
+        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300 italic">Mendoza Avellan
+            Carlos
             Sebastian &copy; 2026</p>
     </footer>
 
-   <!-- MODAL DESCARGA CV -->
-<div id="cvModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
-    <div class="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
-        <h3 class="mb-4 text-lg font-bold text-slate-900">¿Qué incluir en el PDF?</h3>
+    <!-- MODAL DESCARGA CV -->
+    <div id="cvModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
+        <div class="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
+            <h3 class="mb-4 text-lg font-bold text-slate-900">¿Qué incluir en el PDF?</h3>
 
-        <form method="POST" action="{% url 'download_cv' %}">
-            {% csrf_token %}
+            <form method="POST" action="{% url 'download_cv' %}">
+                {% csrf_token %}
 
-            <label class="mb-2 flex items-center gap-2">
-                <input type="checkbox" name="general" checked>
-                Información General
-            </label>
+                <label class="mb-2 flex items-center gap-2">
+                    <input type="checkbox" name="general" checked>
+                    Información General
+                </label>
 
-            <label class="mb-2 flex items-center gap-2">
-                <input type="checkbox" name="formacion" checked>
-                Formación académica
-            </label>
+                <label class="mb-2 flex items-center gap-2">
+                    <input type="checkbox" name="formacion" checked>
+                    Formación académica
+                </label>
 
-            <label class="mb-2 flex items-center gap-2">
-                <input type="checkbox" name="certificados" checked>
-                Certificados
-            </label>
-            <div class="flex justify-end gap-2">
-                <button type="button" onclick="closeCVModal()" class="text-sm text-slate-500">
-                    Cancelar
-                </button>
-                <button type="submit" class="rounded-lg bg-slate-900 px-4 py-2 text-sm text-white">
-                    Descargar PDF
-                </button>
-            </div>
-        </form>
+                <label class="mb-2 flex items-center gap-2">
+                    <input type="checkbox" name="certificados" checked>
+                    Certificados
+                </label>
+                <div class="flex justify-end gap-2">
+                    <button type="button" onclick="closeCVModal()" class="text-sm text-slate-500">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="rounded-lg bg-slate-900 px-4 py-2 text-sm text-white">
+                        Descargar PDF
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-    
+
 
     <script>
         function openCVModal() {

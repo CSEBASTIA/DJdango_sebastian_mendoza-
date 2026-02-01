@@ -1,16 +1,154 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row">
-    <div class="col-md-6 offset-md-3 text-center mt-5">
-        <h1>Django CRUD Application</h1>
-        <p class="lead">Welcome to the Task Manager</p>
-        
-        {% if user.is_authenticated %}
-            <a href="{% url 'tasks' %}" class="btn btn-primary btn-lg">View My Tasks</a>
-        {% else %}
-            <a href="{% url 'signup' %}" class="btn btn-primary btn-lg me-2">Sign Up</a>
-            <a href="{% url 'signin' %}" class="btn btn-secondary btn-lg">Sign In</a>
-        {% endif %}
-    </div>
-</div>
+
+<main class="max-w-5xl mx-auto px-6 py-16 space-y-16">
+
+    <!-- HERO -->
+    <section class="bg-slate-50 border border-slate-100 rounded-3xl p-10">
+        <p class="text-xs font-black uppercase tracking-[0.4em] text-slate-400 mb-4">
+            Desarrollador Full Stack
+        </p>
+        <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 leading-[1.1]">
+            MENDOZA AVELLAN <br> CARLOS SEBASTIAN
+        </h1>
+        <p class="mt-6 text-slate-600 leading-relaxed">
+            Portafolio administrable desde el panel de Django. Todo lo que agregues en el Admin se refleja aquí.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+            <a href="{% url 'portafolio' %}"
+                class="px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800">
+                Ver Portafolio
+            </a>
+            <a href="{% url 'certificados' %}"
+                class="px-5 py-3 rounded-xl border border-slate-200 text-sm font-semibold hover:bg-white">
+                Ver Certificados
+            </a>
+
+            {% if user.is_staff %}
+            <a href="{% url 'admin:index' %}"
+                class="px-5 py-3 rounded-xl border border-slate-900 text-sm font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition">
+                Panel
+            </a>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section>
+        <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Habilidades</h2>
+            <div class="h-px flex-grow bg-slate-100"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Backend -->
+            <div>
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4">Backend</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for s in skills %}
+                    {% if s.category == 'backend' %}
+                    <span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-semibold">
+                        {{ s.icon }} {{ s.name }}
+                    </span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Frontend -->
+            <div>
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4">Frontend</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for s in skills %}
+                    {% if s.category == 'frontend' %}
+                    <span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-semibold">
+                        {{ s.icon }} {{ s.name }}
+                    </span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Herramientas -->
+            <div>
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4">Herramientas</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for s in skills %}
+                    {% if s.category == 'tools' %}
+                    <span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-semibold">
+                        {{ s.icon }} {{ s.name }}
+                    </span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCACIÓN -->
+    <section>
+        <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Educación</h2>
+            <div class="h-px flex-grow bg-slate-100"></div>
+        </div>
+
+        <div class="space-y-6">
+            {% for edu in educaciones %}
+            <div class="p-6 rounded-2xl border border-slate-100 bg-white">
+                <h3 class="text-lg font-bold tracking-tight">{{ edu.title }}</h3>
+                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">
+                    {{ edu.institution }} • {{ edu.date }}
+                </p>
+            </div>
+            {% empty %}
+            <p class="text-slate-500 text-sm">Aún no has agregado educación desde el panel.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section>
+        <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-sm font-black uppercase tracking-[0.3em] text-black">Proyectos</h2>
+            <div class="h-px flex-grow bg-slate-100"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for p in projects %}
+            <article class="p-6 rounded-2xl border border-slate-100 bg-white">
+                <h3 class="text-lg font-bold tracking-tight">{{ p.title }}</h3>
+
+                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1 mb-3">
+                    {{ p.company }}
+                    • {{ p.fecha_inicio|date:"M Y" }} – {{ p.fecha_fin|date:"M Y" }}
+                </p>
+
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    {{ p.description }}
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-3">
+                    {% if p.url_demo %}
+                    <a href="{{ p.url_demo }}" target="_blank"
+                        class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition">
+                        Ver Demo
+                    </a>
+                    {% endif %}
+
+                    {% if p.url_repo %}
+                    <a href="{{ p.url_repo }}" target="_blank"
+                        class="px-4 py-2 rounded-xl border border-slate-900 text-xs font-bold hover:bg-slate-900 hover:text-white transition">
+                        GitHub
+                    </a>
+                    {% endif %}
+                </div>
+            </article>
+            {% empty %}
+            <p class="text-slate-500 text-sm">Aún no has agregado proyectos desde el panel.</p>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
 {% endblock %}
