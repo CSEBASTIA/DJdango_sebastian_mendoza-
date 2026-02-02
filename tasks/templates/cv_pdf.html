@@ -45,6 +45,12 @@
         li {
             margin-bottom: 5px;
         }
+
+        @media print {
+            body {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -60,69 +66,102 @@
     </div>
 
     <h2>EXPERIENCIA</h2>
+    {% for experiencia in experiencias %}
     <div class="item">
-        <strong>Desarrollador Web Jr.</strong> <em>EMPRESA DE ALIMENTOS • 2023 - PRESENTE</em>
-        <p>Desarrollo de aplicaciones web con Django y Python. Diseño de bases de datos PostgreSQL. Integración de APIs
-            REST y colaboración con Git.</p>
+        <strong>{{ experiencia.puesto }}</strong>
+        <em>
+            {{ experiencia.empresa|upper }} • {{ experiencia.fecha_inicio }}
+            {% if experiencia.fecha_fin %}
+            - {{ experiencia.fecha_fin }}
+            {% else %}
+            - PRESENTE
+            {% endif %}
+        </em>
+        <p>{{ experiencia.descripcion }}</p>
     </div>
-    <div class="item">
-        <strong>Freelancer</strong> <em>INDEPENDIENTE • 2024 - 2026</em>
-        <p>Desarrollo de sitios web personalizados. Mantenimiento, soporte técnico y asesoría tecnológica a pequeños
-            negocios locales.</p>
-    </div>
+    {% empty %}
+    <p>No hay experiencias registradas</p>
+    {% endfor %}
 
     <h2>HABILIDADES DE PROGRAMACIÓN</h2>
+
+    {% if habilidades_backend %}
     <strong>BACKEND</strong>
     <ul>
-        <li>Python</li>
-        <li>Django</li>
-        <li>PostgreSQL</li>
-        <li>REST API</li>
-        <li>TypeScript</li>
-    </ul>
-
-    <strong>FRONTEND</strong>
-    <ul>
-        <li>HTML5 / CSS3</li>
-        <li>JavaScript</li>
-        <li>Tailwind</li>
-        <li>React</li>
-    </ul>
-
-    <strong>HERRAMIENTAS</strong>
-    <ul>
-        <li>Git / GitHub</li>
-        <li>Docker</li>
-        <li>VS Code</li>
+        {% for skill in habilidades_backend %}
+        <li>{{ skill.name }}</li>
+        {% endfor %}
     </ul>
     {% endif %}
 
-    {% if incluir_formacion %}
+    {% if habilidades_frontend %}
+    <strong>FRONTEND</strong>
+    <ul>
+        {% for skill in habilidades_frontend %}
+        <li>{{ skill.name }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 
+    {% if herramientas %}
+    <strong>HERRAMIENTAS</strong>
+    <ul>
+        {% for skill in herramientas %}
+        <li>{{ skill.name }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>IDIOMAS</h2>
+    {% for idioma in idiomas %}
+    <div class="item">
+        <strong>{{ idioma.nombre }}</strong>
+        <p>
+            {% if idioma.descripcion_nivel %}
+            {{ idioma.descripcion_nivel }}
+            {% else %}
+            {{ idioma.get_nivel_display }}
+            {% endif %}
+        </p>
+    </div>
+    {% empty %}
+    <p>No hay idiomas registrados</p>
+    {% endfor %}
+    {% endif %}
+
+    {% if incluir_formacion %}
     <h2>EDUCACIÓN</h2>
+    {% for educacion in educaciones %}
     <div class="item">
-        <strong>Ingeniería en Sistemas</strong>
-        <p>Universidad Laica Eloy Alfaro De Manabi, Manta, av circunbalacion • Marzo 2023 - En curso</p>
+        <strong>{{ educacion.title }}</strong>
+        <p>
+            {{ educacion.institution }}
+            {% if educacion.ubicacion %}
+            , {{ educacion.ubicacion }}
+            {% endif %}
+            • {{ educacion.date }}
+        </p>
     </div>
-    <div class="item">
-        <strong>Título Bachiller - Ciencias</strong>
-        <p>Unidad Educativa Pablo VI, Calceta, juan montalvo • Marzo 2022</p>
-    </div>
-    <div class="item">
-        <strong>Curso de Inglés</strong>
-        <p>Instituto de Idiomas • B1 Intermedio</p>
-    </div>
+    {% empty %}
+    <p>No hay educación registrada</p>
+    {% endfor %}
     {% endif %}
 
     {% if incluir_certificados %}
     <h2>CERTIFICADOS</h2>
+    {% for certificado in certificados %}
     <div class="item">
-        <strong>Curso de Android Studio</strong>
-        <p>Udemy • Junio 2024</p>
-        <p><a href="http://127.0.0.1:8000/static/certificados/Android%20Studio.pdf" target="_blank" rel="noopener">Ver
-                certificado PDF
-                →</a></p>
+        <strong>{{ certificado.title }}</strong>
+        <p>{{ certificado.company }} • {{ certificado.date }}</p>
+        {% if certificado.pdf %}
+        <p><a href="{{ certificado.pdf.url }}" target="_blank" rel="noopener">Ver certificado PDF →</a></p>
+        {% elif certificado.enlace %}
+        <p><a href="{{ certificado.enlace }}" target="_blank" rel="noopener">Ver certificado →</a></p>
+        {% endif %}
     </div>
+    {% empty %}
+    <p>No hay certificados registrados</p>
+    {% endfor %}
     {% endif %}
 
     {% if incluir_portafolio %}
@@ -130,8 +169,26 @@
     {% for proyecto in proyectos %}
     <div class="item">
         <strong>{{ proyecto.title }}</strong>
-        <p>{{ proyecto.company }} • {{ proyecto.date }}</p>
+        <p>
+            {{ proyecto.company }} • {{ proyecto.fecha_inicio|date:"Y" }}
+            {% if proyecto.fecha_fin %}
+            - {{ proyecto.fecha_fin|date:"Y" }}
+            {% endif %}
+        </p>
         <p>{{ proyecto.description }}</p>
+        {% if proyecto.url_demo or proyecto.url_repo %}
+        <p>
+            {% if proyecto.url_demo %}
+            <a href="{{ proyecto.url_demo }}" target="_blank" rel="noopener">Demo</a>
+            {% endif %}
+            {% if proyecto.url_demo and proyecto.url_repo %}
+            |
+            {% endif %}
+            {% if proyecto.url_repo %}
+            <a href="{{ proyecto.url_repo }}" target="_blank" rel="noopener">Repositorio</a>
+            {% endif %}
+        </p>
+        {% endif %}
     </div>
     {% empty %}
     <p>No hay proyectos</p>
