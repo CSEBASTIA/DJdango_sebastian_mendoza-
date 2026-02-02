@@ -67,19 +67,25 @@
                 <div class="flex items-center gap-2 mb-6">
                     <span
                         class="px-3 py-1 bg-slate-100 text-[9px] font-black uppercase tracking-widest text-slate-500 rounded-full border border-slate-200">
-                        {{ c.plataforma }}
+                        {{ c.company }}
                     </span>
                     <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                 </div>
 
                 <h3
                     class="font-black text-2xl mb-2 text-slate-900 tracking-tighter leading-tight group-hover:text-indigo-600 transition-colors">
-                    {{ c.nombre }}
+                    {{ c.title }}
                 </h3>
 
+                {% if c.description %}
                 <p class="text-slate-500 text-sm mb-10 font-medium">
-                    {{ c.descripcion }}
+                    {{ c.description }}
                 </p>
+                {% else %}
+                <p class="text-slate-500 text-sm mb-10 font-medium">
+                    Sin descripción.
+                </p>
+                {% endif %}
 
                 <div class="flex items-end justify-between border-t border-slate-50 pt-6">
                     <div>
@@ -87,7 +93,7 @@
                             Fecha de expedición
                         </p>
                         <p class="text-xs font-bold text-slate-700 uppercase">
-                            {{ c.fecha|date:"F Y" }}
+                            {{ c.date }}
                         </p>
                     </div>
 
@@ -104,9 +110,6 @@
                     {% endif %}
                 </div>
             </div>
-
             {% empty %}
             <p class="text-slate-400 text-sm">Aún no has agregado certificados.</p>
             {% endfor %}
-
-        </div>

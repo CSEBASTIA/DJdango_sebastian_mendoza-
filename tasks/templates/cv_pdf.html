@@ -58,13 +58,19 @@
     <h1>CARLOS SEBASTIAN MENDOZA AVELLAN</h1>
     <p style="text-align: center;">Desarrollador Full Stack</p>
 
+    {# PERFIL / RESUMEN #}
     {% if incluir_general %}
     <div class="resumen">
         <strong>Perfil Profesional</strong>
-        <p>Desarrollador apasionado por crear soluciones web innovadoras. Experto en el ecosistema <strong>Full
-                Stack</strong> con Django y Python. Comprometido con el código limpio y el aprendizaje constante.</p>
+        <p>
+            Desarrollador apasionado por crear soluciones web innovadoras. Experto en el ecosistema
+            <strong>Full Stack</strong> con Django y Python. Comprometido con el código limpio y el aprendizaje
+            constante.
+        </p>
     </div>
+    {% endif %}
 
+    {# EXPERIENCIA (la dejo siempre incluida si viene en el contexto) #}
     <h2>EXPERIENCIA</h2>
     {% for experiencia in experiencias %}
     <div class="item">
@@ -77,12 +83,15 @@
             - PRESENTE
             {% endif %}
         </em>
+        {% if experiencia.descripcion %}
         <p>{{ experiencia.descripcion }}</p>
+        {% endif %}
     </div>
     {% empty %}
     <p>No hay experiencias registradas</p>
     {% endfor %}
 
+    {# HABILIDADES #}
     <h2>HABILIDADES DE PROGRAMACIÓN</h2>
 
     {% if habilidades_backend %}
@@ -112,6 +121,7 @@
     </ul>
     {% endif %}
 
+    {# IDIOMAS #}
     <h2>IDIOMAS</h2>
     {% for idioma in idiomas %}
     <div class="item">
@@ -127,8 +137,8 @@
     {% empty %}
     <p>No hay idiomas registrados</p>
     {% endfor %}
-    {% endif %}
 
+    {# EDUCACIÓN #}
     {% if incluir_formacion %}
     <h2>EDUCACIÓN</h2>
     {% for educacion in educaciones %}
@@ -147,12 +157,14 @@
     {% endfor %}
     {% endif %}
 
+    {# CERTIFICADOS #}
     {% if incluir_certificados %}
     <h2>CERTIFICADOS</h2>
     {% for certificado in certificados %}
     <div class="item">
         <strong>{{ certificado.title }}</strong>
         <p>{{ certificado.company }} • {{ certificado.date }}</p>
+
         {% if certificado.pdf %}
         <p><a href="{{ certificado.pdf.url }}" target="_blank" rel="noopener">Ver certificado PDF →</a></p>
         {% elif certificado.enlace %}
@@ -164,6 +176,7 @@
     {% endfor %}
     {% endif %}
 
+    {# PROYECTOS #}
     {% if incluir_portafolio %}
     <h2>PROYECTOS</h2>
     {% for proyecto in proyectos %}
@@ -176,6 +189,7 @@
             {% endif %}
         </p>
         <p>{{ proyecto.description }}</p>
+
         {% if proyecto.url_demo or proyecto.url_repo %}
         <p>
             {% if proyecto.url_demo %}

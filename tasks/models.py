@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.core.exceptions import ValidationError
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 
 class Skill(models.Model):
@@ -10,18 +12,28 @@ class Skill(models.Model):
         ("tools", "Herramientas"),
     ]
 
+    ICON_CHOICES = [
+        ("code", "HTML / Código"),
+        ("palette", "CSS / Diseño"),
+        ("zap", "JavaScript"),
+        ("file-code", "TypeScript"),
+        ("terminal", "Python"),
+        ("globe", "Django"),
+        ("git-branch", "Git"),
+        ("github", "GitHub"),
+        ("database", "Base de datos"),
+        ("server", "Backend / Server"),
+    ]
+
     name = models.CharField(max_length=100)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
-    icon = models.CharField(max_length=10, default="⚙️")
-    orden = models.PositiveIntegerField(
-        default=0
-    )  # AGREGADO: para ordenar las habilidades
+    icon = models.CharField(max_length=50, choices=ICON_CHOICES, default="code")
+    orden = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        ordering = ["category", "orden", "name"]  # MODIFICADO: agregado orden
         verbose_name = "Información General"
         verbose_name_plural = "Información General"
 
@@ -150,3 +162,9 @@ class Idioma(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.get_nivel_display()}"
+
+
+@receiver(post_delete, sender=Certificado)
+def borrar_pdf_al_eliminar(sender, instance, **kwargs):
+    if instance.pdf:
+        instance.pdf.delete(save=False)
